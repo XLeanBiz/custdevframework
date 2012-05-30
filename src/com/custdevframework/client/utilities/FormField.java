@@ -50,4 +50,24 @@ public class FormField {
 
 		return vp;
 	}
+
+	public static HorizontalPanel getStringField(final String label,
+			final String fieldValue) {
+
+		HorizontalPanel hp = new HorizontalPanel();
+
+		hp.setSpacing(5);
+		hp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
+
+		HTML title = new HTML(label + ": ");
+		title.setWidth("150px");
+		title.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
+		hp.add(title);
+
+		HTML fieldHTML = new HTML("<b>" + fieldValue + "</b>");
+		hp.add(fieldHTML);
+
+		return hp;
+	}
+
 }

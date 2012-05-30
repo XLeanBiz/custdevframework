@@ -4,6 +4,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.custdevframework.client.CustDevFrameworkService;
+import com.custdevframework.server.interviews.ListInterviews;
+import com.custdevframework.server.interviews.SaveInterview;
 import com.custdevframework.server.personas.GetPersona;
 import com.custdevframework.server.personas.ListPersonas;
 import com.custdevframework.server.personas.SavePersona;
@@ -33,6 +35,27 @@ public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 			personaJson = new JSONObject(personaString);
 
 			return SavePersona.save(personaJson);
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public String listInterviews(final String company) {
+
+		return ListInterviews.list(company);
+	}
+
+	public String saveInterview(final String interview) {
+
+		JSONObject json;
+		try {
+			json = new JSONObject(interview);
+
+			return SaveInterview.save(json);
+
 		} catch (JSONException e) {
 
 			e.printStackTrace();

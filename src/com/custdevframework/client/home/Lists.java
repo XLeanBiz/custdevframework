@@ -1,6 +1,7 @@
 package com.custdevframework.client.home;
 
 import com.custdevframework.client.interviews.edit.AddInterviewButton;
+import com.custdevframework.client.interviews.list.ListInterviews;
 import com.custdevframework.client.persona.edit.AddPersonaButton;
 import com.custdevframework.client.persona.list.ListPersonas;
 import com.google.gwt.user.client.ui.HTML;
@@ -66,7 +67,7 @@ public class Lists extends HorizontalPanel {
 		vpInterviewsList.clear();
 		vpInterview.add(vpInterviewsList);
 
-		// ListPersonas.list();
+		ListInterviews.list();
 
 		return vpInterview;
 

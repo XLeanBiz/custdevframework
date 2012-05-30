@@ -6,10 +6,12 @@ import co.uniqueid.authentication.client.login.facebook.InitializeFacebookLogin;
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.home.header.Header;
 import com.custdevframework.client.persona.show.GetPersona;
-import com.google.gwt.user.client.Window;
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class InitializeCustDevFramework {
+	
+	public static JSONArray listPersonas;
 
 	private static final String REDIRECT_URL = "http://startupsdata.appspot.com/";
 	private static final String facebookAppID = "237384049703314";

@@ -1,6 +1,7 @@
 package com.custdevframework.client.utilities;
 
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.json.client.JSONValue;
 
 public class ConvertJson {
@@ -36,4 +37,11 @@ public class ConvertJson {
 		return null;
 	}
 
+	public static void setStringValue(JSONObject jsonObject, final String fieldValue,
+			final String fieldName) {
+
+		if (fieldValue != null) {
+			jsonObject.put(fieldName, new JSONString(fieldValue));
+		}
+	}
 }

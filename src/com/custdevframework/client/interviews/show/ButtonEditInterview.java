@@ -1,15 +1,15 @@
-package com.custdevframework.client.persona.show;
+package com.custdevframework.client.interviews.show;
 
 import com.custdevframework.client.home.Home;
-import com.custdevframework.client.persona.edit.EditPersona;
+import com.custdevframework.client.interviews.edit.EditInterview;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.Button;
 
-public class ButtonEdit extends Button {
+public class ButtonEditInterview extends Button {
 
-	public ButtonEdit(final JSONObject personaJson) {
+	public ButtonEditInterview(final JSONObject interview) {
 
 		this.setText("Edit");
 
@@ -19,7 +19,7 @@ public class ButtonEdit extends Button {
 			public void onClick(ClickEvent event) {
 
 				Home.vpMain.clear();
-				Home.vpMain.add(new EditPersona(personaJson));
+				Home.vpMain.add(new EditInterview(interview));
 			}
 		});
 

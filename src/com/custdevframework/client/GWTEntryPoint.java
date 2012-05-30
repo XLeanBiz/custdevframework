@@ -1,9 +1,12 @@
 package com.custdevframework.client;
 
+import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
 
@@ -20,7 +23,7 @@ public class GWTEntryPoint implements EntryPoint {
 		new UseTracking(this.getClass().getName());
 
 		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
-		// uniqueID = "AllineWatkins_1332886062783";
+		uniqueID = "AllineWatkins_1332886062783";
 
 		final String company = Location.getParameter("company");
 		String persona = Location.getParameter("persona");
@@ -43,6 +46,14 @@ public class GWTEntryPoint implements EntryPoint {
 				InitializeCustDevFramework.init(uniqueID, company, persona);
 			}
 		} else {
+
+			if (company != null) {
+
+				JSONObject json = new JSONObject();
+				json.put("ID", new JSONString(company));
+
+				UniqueIDGlobalVariables.companyUniqueID = json;
+			}
 
 			InitializeCustDevFramework.init(uniqueID, company, persona);
 		}

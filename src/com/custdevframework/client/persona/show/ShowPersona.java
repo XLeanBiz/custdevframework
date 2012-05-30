@@ -18,7 +18,7 @@ public class ShowPersona extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
-		this.add(new ButtonEdit(personaJson));
+		this.add(new ButtonEditPersona(personaJson));
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 

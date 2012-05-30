@@ -83,7 +83,7 @@ public class EditPersona extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		this.add(new ButtonSave(personaJson));
+		this.add(new ButtonSavePersona(personaJson));
 	}
 
 }
