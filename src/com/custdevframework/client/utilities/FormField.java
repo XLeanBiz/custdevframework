@@ -12,7 +12,7 @@ public class FormField {
 
 	public static HorizontalPanel getFormField(String label, Widget field) {
 
-		return getFormField(label, "100px", field);
+		return getFormField(label, "150px", field);
 	}
 
 	public static HorizontalPanel getFormField(String label, String labelSize,

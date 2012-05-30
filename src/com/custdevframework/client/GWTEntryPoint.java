@@ -1,19 +1,16 @@
 package com.custdevframework.client;
 
-import com.custdevframework.client.home.Home;
-import com.custdevframework.client.persona.show.GetPersona;
+import co.uniqueid.authentication.client.utilities.EncryptText;
+
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Cookies;
 import com.google.gwt.user.client.Window.Location;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class GWTEntryPoint implements EntryPoint {
-
-	public static VerticalPanel vpMain = new VerticalPanel();
 
 	/**
 	 * This is the entry point method.
@@ -22,21 +19,33 @@ public class GWTEntryPoint implements EntryPoint {
 
 		new UseTracking(this.getClass().getName());
 
+		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
+		// uniqueID = "AllineWatkins_1332886062783";
+
+		final String company = Location.getParameter("company");
 		String persona = Location.getParameter("persona");
 
-		vpMain.clear();
+		if (uniqueID == null || uniqueID.equals("null")) {
 
-		RootPanel.get().add(vpMain, 8, 3);
+			String authenticationCode = Location.getParameter("code");
 
-		vpMain.setWidth("100%");
+			final String error = Location.getParameter("error_reason");
 
-		if (persona != null) {
+			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+					.equals(authenticationCode)))) {
 
-			GetPersona.get(persona);
+				InitializeCustDevFramework.init(uniqueID, company, persona);
 
+				InitializeCustDevFramework
+						.VerifyFacebookLogin(authenticationCode);
+			} else {
+
+				InitializeCustDevFramework.init(uniqueID, company, persona);
+			}
 		} else {
 
-			vpMain.add(new Home());
+			InitializeCustDevFramework.init(uniqueID, company, persona);
 		}
+
 	}
 }

@@ -1,6 +1,6 @@
 package com.custdevframework.client.persona.list;
 
-import com.custdevframework.client.GWTEntryPoint;
+import com.custdevframework.client.home.Home;
 import com.custdevframework.client.persona.show.ShowPersona;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -28,8 +28,8 @@ public class PersonaListPanel extends VerticalPanel {
 				@Override
 				public void onClick(ClickEvent event) {
 
-					GWTEntryPoint.vpMain.clear();
-					GWTEntryPoint.vpMain.add(new ShowPersona(persona));
+					Home.vpMain.clear();
+					Home.vpMain.add(new ShowPersona(persona));
 				}
 			});
 

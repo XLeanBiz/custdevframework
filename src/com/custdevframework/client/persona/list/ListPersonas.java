@@ -2,7 +2,7 @@ package com.custdevframework.client.persona.list;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
-import com.custdevframework.client.home.Home;
+import com.custdevframework.client.home.Lists;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
@@ -23,11 +23,14 @@ public class ListPersonas {
 
 			public void onSuccess(final String jsonResults) {
 
-				JSONArray jsonArray = (JSONArray) JSONParser
-						.parseStrict(jsonResults);
+				if (jsonResults != null) {
 
-				Home.vpPersonaList.clear();
-				Home.vpPersonaList.add(new PersonaListPanel(jsonArray));
+					JSONArray jsonArray = (JSONArray) JSONParser
+							.parseStrict(jsonResults);
+
+					Lists.vpPersonaList.clear();
+					Lists.vpPersonaList.add(new PersonaListPanel(jsonArray));
+				}
 			}
 		});
 	}

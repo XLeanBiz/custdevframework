@@ -2,7 +2,7 @@ package com.custdevframework.client.persona.show;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
-import com.custdevframework.client.GWTEntryPoint;
+import com.custdevframework.client.home.Home;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONParser;
@@ -28,8 +28,8 @@ public class GetPersona {
 					JSONObject persona = (JSONObject) JSONParser
 							.parseStrict(jsonResult);
 
-					GWTEntryPoint.vpMain.clear();
-					GWTEntryPoint.vpMain.add(new ShowPersona(persona));
+					Home.vpMain.clear();
+					Home.vpMain.add(new ShowPersona(persona));
 				}
 			}
 		});

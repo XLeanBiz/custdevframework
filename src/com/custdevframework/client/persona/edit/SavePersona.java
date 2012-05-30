@@ -2,7 +2,6 @@ package com.custdevframework.client.persona.edit;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
-import com.custdevframework.client.GWTEntryPoint;
 import com.custdevframework.client.home.Home;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
@@ -24,8 +23,8 @@ public class SavePersona {
 
 					public void onSuccess(String unoUserJson) {
 
-						GWTEntryPoint.vpMain.clear();
-						GWTEntryPoint.vpMain.add(new Home());
+						Home.vpMain.clear();
+						Home.vpMain.add(new Home());
 					}
 				});
 
