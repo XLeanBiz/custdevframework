@@ -12,7 +12,7 @@ public class Home extends VerticalPanel {
 
 	public Home() {
 
-		this.setSpacing(40);
+		this.setSpacing(30);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
@@ -23,7 +23,7 @@ public class Home extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		this.add(new Lists());
+		this.add(new HomeLists());
 	}
 
 }

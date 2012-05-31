@@ -3,6 +3,8 @@ package com.custdevframework.client;
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
+import com.custdevframework.client.persona.show.GetPersona;
+import com.custdevframework.client.startupdata.GetStartupData;
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.json.client.JSONObject;
@@ -23,40 +25,47 @@ public class GWTEntryPoint implements EntryPoint {
 		new UseTracking(this.getClass().getName());
 
 		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
-		uniqueID = "AllineWatkins_1332886062783";
+		//uniqueID = "AllineWatkins_1332886062783";
 
 		final String company = Location.getParameter("company");
-		String persona = Location.getParameter("persona");
 
-		if (uniqueID == null || uniqueID.equals("null")) {
+		final String persona = Location.getParameter("persona");
 
-			String authenticationCode = Location.getParameter("code");
+		if (persona != null) {
 
-			final String error = Location.getParameter("error_reason");
+			InitializeCustDevFramework.init();
+			GetPersona.get(persona);
 
-			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
-					.equals(authenticationCode)))) {
-
-				InitializeCustDevFramework.init(uniqueID, company, persona);
-
-				InitializeCustDevFramework
-						.VerifyFacebookLogin(authenticationCode);
-			} else {
-
-				InitializeCustDevFramework.init(uniqueID, company, persona);
-			}
 		} else {
 
-			if (company != null) {
+			if (uniqueID == null || uniqueID.equals("null")) {
 
-				JSONObject json = new JSONObject();
-				json.put("ID", new JSONString(company));
+				String authenticationCode = Location.getParameter("code");
 
-				UniqueIDGlobalVariables.companyUniqueID = json;
+				final String error = Location.getParameter("error_reason");
+
+				if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+						.equals(authenticationCode)))) {
+
+					InitializeCustDevFramework
+							.VerifyFacebookLogin(authenticationCode);
+				}
+			} else {
+
+				InitializeCustDevFramework.init();
+
+				if (company != null) {
+
+					JSONObject json = new JSONObject();
+					json.put("ID", new JSONString(company));
+
+					UniqueIDGlobalVariables.companyUniqueID = json;
+
+					GetStartupData.get(company);
+				}
+
+				InitializeCustDevFramework.initHome(uniqueID, company);
 			}
-
-			InitializeCustDevFramework.init(uniqueID, company, persona);
 		}
-
 	}
 }

@@ -1,23 +1,24 @@
 package com.custdevframework.client.persona.list;
 
+import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.utilities.ConvertJson;
-import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.ListBox;
 
 public class PersonaListbox extends ListBox {
 
-	public PersonaListbox(final JSONArray personas, final String persona) {
+	public PersonaListbox(final String persona) {
 
-		this.setWidth("200px");
+		if (InitializeCustDevFramework.personasList != null) {
 
-		this.addItem("");
+			this.setWidth("200px");
 
-		if (personas != null) {
+			this.addItem("");
 
-			for (int i = 0; i < personas.size(); i++) {
+			for (int i = 0; i < InitializeCustDevFramework.personasList.size(); i++) {
 
-				JSONObject json = (JSONObject) personas.get(i);
+				JSONObject json = (JSONObject) InitializeCustDevFramework.personasList
+						.get(i);
 
 				String ID = ConvertJson.getStringValue(json, "ID");
 
@@ -31,6 +32,10 @@ public class PersonaListbox extends ListBox {
 					}
 				}
 			}
+
+		} else {
+
+			ListPersonas.list();
 		}
 
 	}

@@ -4,8 +4,7 @@ import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
-import com.custdevframework.client.InitializeCustDevFramework;
-import com.custdevframework.client.home.Lists;
+import com.custdevframework.client.home.Home;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
@@ -39,9 +38,9 @@ public class ListInterviews {
 								JSONArray jsonArray = (JSONArray) JSONParser
 										.parseStrict(jsonResults);
 
-								Lists.vpInterviewsList.clear();
-								Lists.vpInterviewsList
-										.add(new InterviewsListPanel(jsonArray));
+								Home.vpMain.clear();
+								Home.vpMain.add(new InterviewsListPanel(
+										jsonArray));
 							}
 						}
 					});

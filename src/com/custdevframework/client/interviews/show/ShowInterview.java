@@ -43,7 +43,8 @@ public class ShowInterview extends VerticalPanel {
 
 		String videoURL = ConvertJson
 				.convertToString(interview.get("videoURL"));
-		this.add(FormField.getStringField("Video URL", videoURL));
+		this.add(FormField.getStringField("Video URL", "<a href='" + videoURL
+				+ "' target='_blank'>" + videoURL + "</a>"));
 
 		String notes = ConvertJson.convertToString(interview.get("notes"));
 		this.add(FormField.getStringField("Notes", notes));

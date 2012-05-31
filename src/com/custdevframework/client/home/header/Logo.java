@@ -16,7 +16,7 @@ public class Logo extends HTML {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				InitializeCustDevFramework.reinit(null, null, null);
+				InitializeCustDevFramework.reinit();
 			}
 		});
 	}

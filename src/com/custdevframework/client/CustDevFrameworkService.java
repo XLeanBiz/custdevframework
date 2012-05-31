@@ -9,6 +9,8 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("custdevframework")
 public interface CustDevFrameworkService extends RemoteService {
 
+	String getStartupData(String company);
+	
 	String listPersonas();
 	
 	String getPersona(String name);

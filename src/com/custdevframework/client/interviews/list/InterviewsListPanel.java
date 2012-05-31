@@ -1,6 +1,9 @@
 package com.custdevframework.client.interviews.list;
 
+import java.util.Date;
+
 import com.custdevframework.client.home.Home;
+import com.custdevframework.client.interviews.edit.AddInterviewButton;
 import com.custdevframework.client.interviews.show.ShowInterview;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -14,16 +17,22 @@ public class InterviewsListPanel extends VerticalPanel {
 
 	public InterviewsListPanel(JSONArray interviews) {
 
-		this.setSpacing(10);
+		this.setSpacing(20);
+
+		this.add(new AddInterviewButton());
 
 		for (int i = 0; i < interviews.size(); i++) {
 
 			final JSONObject interviewJson = (JSONObject) interviews.get(i);
 
+			String datetime = ConvertJson.getStringValue(interviewJson,
+					"datetime");
+
 			String customerName = ConvertJson.getStringValue(interviewJson,
 					"customerName");
 
-			HTML html = new HTML("<a href=#><b>" + customerName + "</b></a>");
+			HTML html = new HTML(new Date(new Long(datetime))
+					+ " - <a href=#><b>" + " " + customerName + "</b></a>");
 			html.addClickHandler(new ClickHandler() {
 
 				@Override

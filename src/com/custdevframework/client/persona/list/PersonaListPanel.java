@@ -1,24 +1,25 @@
 package com.custdevframework.client.persona.list;
 
+import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.persona.show.ShowPersona;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class PersonaListPanel extends VerticalPanel {
 
-	public PersonaListPanel(JSONArray personas) {
+	public PersonaListPanel() {
 
 		this.setSpacing(10);
 
-		for (int i = 0; i < personas.size(); i++) {
+		for (int i = 0; i < InitializeCustDevFramework.personasList.size(); i++) {
 
-			final JSONObject persona = (JSONObject) personas.get(i);
+			final JSONObject persona = (JSONObject) InitializeCustDevFramework.personasList
+					.get(i);
 
 			String personaName = ConvertJson.getStringValue(persona, "ID");
 

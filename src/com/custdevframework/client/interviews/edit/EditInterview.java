@@ -4,7 +4,6 @@ import java.util.Date;
 
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 
-import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.persona.list.PersonaListbox;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.custdevframework.client.utilities.FormField;
@@ -70,8 +69,7 @@ public class EditInterview extends VerticalPanel {
 
 		String personaName = ConvertJson.convertToString(interview
 				.get("persona"));
-		personaNameField = new PersonaListbox(
-				InitializeCustDevFramework.listPersonas, personaName);
+		personaNameField = new PersonaListbox(personaName);
 		this.add(FormField.getFormField("<font color=red>*</font> Persona",
 				personaNameField));
 
