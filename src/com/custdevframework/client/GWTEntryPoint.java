@@ -28,6 +28,13 @@ public class GWTEntryPoint implements EntryPoint {
 		//uniqueID = "AllineWatkins_1332886062783";
 
 		final String company = Location.getParameter("company");
+		if (company != null) {
+
+			JSONObject json = new JSONObject();
+			json.put("ID", new JSONString(company));
+
+			UniqueIDGlobalVariables.companyUniqueID = json;
+		}
 
 		final String persona = Location.getParameter("persona");
 
@@ -56,14 +63,8 @@ public class GWTEntryPoint implements EntryPoint {
 
 				if (company != null) {
 
-					JSONObject json = new JSONObject();
-					json.put("ID", new JSONString(company));
-
-					UniqueIDGlobalVariables.companyUniqueID = json;
-
 					GetStartupData.get(company);
 				}
-
 				InitializeCustDevFramework.initHome(uniqueID, company);
 			}
 		}

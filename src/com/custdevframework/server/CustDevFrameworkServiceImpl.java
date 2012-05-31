@@ -9,6 +9,8 @@ import com.custdevframework.server.interviews.SaveInterview;
 import com.custdevframework.server.personas.GetPersona;
 import com.custdevframework.server.personas.ListPersonas;
 import com.custdevframework.server.personas.SavePersona;
+import com.custdevframework.server.problems.ListProblems;
+import com.custdevframework.server.problems.SaveProblem;
 import com.custdevframework.server.startupsdata.GetStartupData;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -41,6 +43,28 @@ public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 			personaJson = new JSONObject(personaString);
 
 			return SavePersona.save(personaJson);
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+	public String listProblems() {
+
+		return ListProblems.list();
+	}
+
+	public String saveProblem(final String problemString) {
+
+		JSONObject json;
+		try {
+
+			json = new JSONObject(problemString);
+
+			return SaveProblem.save(json);
+
 		} catch (JSONException e) {
 
 			e.printStackTrace();

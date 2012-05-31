@@ -4,6 +4,8 @@ import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.interviews.list.ButtonListInterviews;
 import com.custdevframework.client.persona.change.ChangePersonaButton;
 import com.custdevframework.client.persona.show.PersonaLink;
+import com.custdevframework.client.problems.change.ChangeProblemButton;
+import com.custdevframework.client.problems.show.ProblemLink;
 import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -63,7 +65,7 @@ public class HomeLists extends HorizontalPanel {
 		vpProblem.clear();
 		vpInterview.add(vpProblem);
 
-		// vpInterview.add(new AddInterviewButton());
+		vpInterview.add(new ChangeProblemButton());
 
 		return vpInterview;
 	}
@@ -111,13 +113,10 @@ public class HomeLists extends HorizontalPanel {
 				.convertToString(InitializeCustDevFramework.startupdata
 						.get("Persona"))));
 
-		HTML problem = new HTML(
-				"<b>"
-						+ ConvertJson
-								.convertToString(InitializeCustDevFramework.startupdata
-										.get("Problem")) + "</b>");
 		vpProblem.clear();
-		// vpProblem.add(problem);
+		vpProblem.add(new ProblemLink(ConvertJson
+				.convertToString(InitializeCustDevFramework.startupdata
+						.get("Problem"))));
 
 		HTML solution = new HTML(
 				"<b>"

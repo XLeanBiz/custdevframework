@@ -13,6 +13,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class InitializeCustDevFramework {
 
 	public static JSONArray personasList = null;
+	public static JSONArray problemsList = null;
+	public static JSONArray solutionsList = null;
 
 	public static JSONObject startupdata = null;
 

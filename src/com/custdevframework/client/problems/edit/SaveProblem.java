@@ -1,20 +1,20 @@
-package com.custdevframework.client.persona.edit;
+package com.custdevframework.client.problems.edit;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
-import com.custdevframework.client.persona.list.ListPersonas;
+import com.custdevframework.client.problems.list.ListProblems;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public class SavePersona {
+public class SaveProblem {
 
-	public static void save(final JSONObject personaJson) {
+	public static void save(final JSONObject json) {
 
 		final CustDevFrameworkServiceAsync custDevService = GWT
 				.create(CustDevFrameworkService.class);
 
-		custDevService.savePersona(personaJson.toString(),
+		custDevService.saveProblem(json.toString(),
 				new AsyncCallback<String>() {
 
 					public void onFailure(final Throwable caught) {
@@ -23,7 +23,7 @@ public class SavePersona {
 
 					public void onSuccess(String unoUserJson) {
 
-						ListPersonas.list();
+						ListProblems.list();
 					}
 				});
 
