@@ -11,7 +11,6 @@ import com.custdevframework.server.personas.ListPersonas;
 import com.custdevframework.server.personas.SavePersona;
 import com.custdevframework.server.problems.ListProblems;
 import com.custdevframework.server.problems.SaveProblem;
-import com.custdevframework.server.startupsdata.GetStartupData;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -20,11 +19,6 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 @SuppressWarnings("serial")
 public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 		CustDevFrameworkService {
-
-	public String getStartupData(final String company) {
-
-		return GetStartupData.getJsonString(company);
-	}
 
 	public String listPersonas() {
 

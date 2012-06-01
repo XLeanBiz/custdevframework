@@ -7,8 +7,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public interface CustDevFrameworkServiceAsync {
 
-	void getStartupData(String company, AsyncCallback<String> callback);
-
 	void listPersonas(AsyncCallback<String> callback);
 
 	void getPersona(String name, AsyncCallback<String> callback);

@@ -5,32 +5,33 @@ import com.custdevframework.client.problems.list.ListProblems;
 import com.custdevframework.client.problems.list.ProblemsListPanel;
 import com.custdevframework.client.problems.list.ProblemsListbox;
 import com.custdevframework.client.utilities.ConvertJson;
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ChangeProblem extends VerticalPanel {
+
+	public static ProblemsListbox list = null;
 
 	public ChangeProblem() {
 
 		if (InitializeCustDevFramework.problemsList != null) {
 
-			this.setSpacing(40);
+			this.setSpacing(20);
 
-			ProblemsListbox list = new ProblemsListbox(
+			HorizontalPanel hp = new HorizontalPanel();
+
+			hp.setSpacing(20);
+
+			list = new ProblemsListbox(
 					ConvertJson
 							.convertToString(InitializeCustDevFramework.startupdata
 									.get("Problem")));
 
-			list.addChangeHandler(new ChangeHandler() {
+			hp.add(list);
 
-				@Override
-				public void onChange(ChangeEvent event) {
+			hp.add(new ButtonSaveProblem());
 
-				}
-			});
-
-			this.add(list);
+			this.add(hp);
 
 			this.add(new ProblemsListPanel());
 

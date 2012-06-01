@@ -28,6 +28,16 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>startupdata</servlet-name>
+		<servlet-class>com.custdevframework.server.StartupDataServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>startupdata</servlet-name>
+		<url-pattern>/custdevframework/startupdata</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>uniqueIDServlet</servlet-name>
 		<servlet-class>co.uniqueid.authentication.server.uniqueID.UniqueIDServiceImpl</servlet-class>
 	</servlet>

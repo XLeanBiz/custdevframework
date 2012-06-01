@@ -1,7 +1,5 @@
 package com.custdevframework.client.startupdata;
 
-import com.custdevframework.client.CustDevFrameworkService;
-import com.custdevframework.client.CustDevFrameworkServiceAsync;
 import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.home.HomeLists;
 import com.google.gwt.core.client.GWT;
@@ -13,10 +11,10 @@ public class GetStartupData {
 
 	public static void get(final String company) {
 
-		final CustDevFrameworkServiceAsync custDevService = GWT
-				.create(CustDevFrameworkService.class);
+		final StartupDataServiceAsync startupdataService = GWT
+				.create(StartupDataService.class);
 
-		custDevService.getStartupData(company, new AsyncCallback<String>() {
+		startupdataService.getStartupData(company, new AsyncCallback<String>() {
 
 			public void onFailure(Throwable caught) {
 
