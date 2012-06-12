@@ -1,17 +1,17 @@
 package com.custdevframework.client.interviews.list;
 
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
+import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
 import com.custdevframework.client.home.Home;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public class ListInterviews {
+public class ListPersonaInterviews {
 
 	public static void list() {
 
@@ -24,7 +24,7 @@ public class ListInterviews {
 					.convertToString(UniqueIDGlobalVariables.companyUniqueID
 							.get("ID"));
 
-			custDevService.listInterviews(companyUniqueID,
+			custDevService.listPersonaInterviews(companyUniqueID,
 					new AsyncCallback<String>() {
 
 						public void onFailure(final Throwable caught) {

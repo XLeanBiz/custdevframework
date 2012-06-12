@@ -1,6 +1,7 @@
 package com.custdevframework.client.persona.edit;
 
-import com.custdevframework.client.utilities.ConvertJson;
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;

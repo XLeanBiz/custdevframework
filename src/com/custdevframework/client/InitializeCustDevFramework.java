@@ -36,7 +36,7 @@ public class InitializeCustDevFramework {
 	public static void initHome(final String uniqueID, final String companyID) {
 
 		new InitializeFacebookLogin(uniqueID, facebookAppID, REDIRECT_URL,
-				companyID);
+				companyID, true);
 
 		Home.vpMain.clear();
 		Home.vpMain.add(new Home());

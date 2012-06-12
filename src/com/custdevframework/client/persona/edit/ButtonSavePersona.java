@@ -1,6 +1,7 @@
 package com.custdevframework.client.persona.edit;
 
-import com.custdevframework.client.utilities.ConvertJson;
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;

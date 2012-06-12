@@ -1,10 +1,11 @@
 package com.custdevframework.client.persona.list;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.persona.edit.AddNewPersonaButton;
 import com.custdevframework.client.persona.show.ShowPersona;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;

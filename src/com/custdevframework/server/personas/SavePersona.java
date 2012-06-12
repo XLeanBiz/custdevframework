@@ -1,10 +1,10 @@
 package com.custdevframework.server.personas;
 
-import org.json.JSONObject;
+import co.uniqueid.authentication.client.utilities.EncryptText;
+import co.uniqueid.authentication.server.utilities.JSONUtilities;
+import co.uniqueid.authentication.server.utilities.URLUtilities;
 
-import com.custdevframework.server.utilities.EncryptText;
-import com.custdevframework.server.utilities.JSONUtilities;
-import com.custdevframework.server.utilities.URLUtilities;
+import com.google.appengine.repackaged.org.json.JSONObject;
 
 public class SavePersona {
 

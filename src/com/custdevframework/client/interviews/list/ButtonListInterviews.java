@@ -18,7 +18,7 @@ public class ButtonListInterviews extends Button {
 
 				new UseTracking(this.getClass().getName());
 
-				ListInterviews.list();
+				ListPersonaInterviews.list();
 			}
 		});
 

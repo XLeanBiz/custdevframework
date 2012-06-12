@@ -1,11 +1,13 @@
 package com.custdevframework.client.problems.show;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.problems.edit.ButtonEditProblem;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ShowProblem extends VerticalPanel {
@@ -16,7 +18,13 @@ public class ShowProblem extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
-		this.add(new ButtonEditProblem(json));
+		HorizontalPanel hpButtons = new HorizontalPanel();
+		hpButtons.setSpacing(5);
+
+		hpButtons.add(new ButtonEditProblem(json));
+		hpButtons.add(new ButtonAddProblemInterview(json));
+
+		this.add(hpButtons);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 

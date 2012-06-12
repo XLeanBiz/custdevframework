@@ -34,16 +34,14 @@ public class FormField {
 		return hp;
 	}
 
-	public static VerticalPanel getVerticalFormField(String label,
-			String labelSize, Widget field) {
+	public static VerticalPanel getVerticalFormField(String label, Widget field) {
 
 		VerticalPanel vp = new VerticalPanel();
 
 		vp.setSpacing(5);
 		vp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 
-		Label title = new Label(label + ": ");
-		title.setWidth(labelSize);
+		Label title = new Label(label);
 		vp.add(title);
 
 		vp.add(field);

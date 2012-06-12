@@ -4,6 +4,7 @@ import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
 import com.custdevframework.client.persona.show.GetPersona;
+import com.custdevframework.client.problems.show.GetProblem;
 import com.custdevframework.client.startupdata.GetStartupData;
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.core.client.EntryPoint;
@@ -25,7 +26,7 @@ public class GWTEntryPoint implements EntryPoint {
 		new UseTracking(this.getClass().getName());
 
 		String uniqueID = EncryptText.decrypt(Cookies.getCookie("UniqueID"));
-		//uniqueID = "AllineWatkins_1332886062783";
+		uniqueID = "AllineWatkins_1332886062783";
 
 		final String company = Location.getParameter("company");
 		if (company != null) {
@@ -36,37 +37,39 @@ public class GWTEntryPoint implements EntryPoint {
 			UniqueIDGlobalVariables.companyUniqueID = json;
 		}
 
-		final String persona = Location.getParameter("persona");
+		if (uniqueID == null || uniqueID.equals("null")) {
 
-		if (persona != null) {
+			String authenticationCode = Location.getParameter("code");
 
-			InitializeCustDevFramework.init();
-			GetPersona.get(persona);
+			final String error = Location.getParameter("error_reason");
 
+			if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
+					.equals(authenticationCode)))) {
+
+				InitializeCustDevFramework
+						.VerifyFacebookLogin(authenticationCode);
+			}
 		} else {
 
-			if (uniqueID == null || uniqueID.equals("null")) {
+			InitializeCustDevFramework.init();
 
-				String authenticationCode = Location.getParameter("code");
+			if (company != null) {
 
-				final String error = Location.getParameter("error_reason");
-
-				if (!((null != error && error.equals("user_denied")) || (authenticationCode == null || ""
-						.equals(authenticationCode)))) {
-
-					InitializeCustDevFramework
-							.VerifyFacebookLogin(authenticationCode);
-				}
-			} else {
-
-				InitializeCustDevFramework.init();
-
-				if (company != null) {
-
-					GetStartupData.get(company);
-				}
-				InitializeCustDevFramework.initHome(uniqueID, company);
+				GetStartupData.get(company);
 			}
+			InitializeCustDevFramework.initHome(uniqueID, company);
+		}
+
+		final String persona = Location.getParameter("persona");
+		if (persona != null) {
+
+			GetPersona.get(persona);
+		}
+
+		final String problem = Location.getParameter("problem");
+		if (problem != null) {
+
+			GetProblem.get(problem);
 		}
 	}
 }

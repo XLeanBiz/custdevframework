@@ -1,11 +1,12 @@
-package com.custdevframework.client.interviews.edit;
+package com.custdevframework.client.interviews.questions.persona;
 
 import java.util.Date;
 
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
+import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.persona.list.PersonaListbox;
-import com.custdevframework.client.utilities.ConvertJson;
+import com.custdevframework.client.problems.list.ProblemsListbox;
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -14,7 +15,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.datepicker.client.DateBox;
 
-public class EditInterview extends VerticalPanel {
+public class EditPersonaInterview extends VerticalPanel {
 
 	public static DateBox dateTime = new DateBox();
 
@@ -28,7 +29,11 @@ public class EditInterview extends VerticalPanel {
 
 	public static RichTextArea notes = new RichTextArea();
 
-	public EditInterview(JSONObject interview) {
+	public static ProblemsListbox problem1Field;
+
+	public static ProblemsListbox problem2Field;
+
+	public EditPersonaInterview(JSONObject interview) {
 
 		this.setSpacing(20);
 
@@ -89,15 +94,21 @@ public class EditInterview extends VerticalPanel {
 				.get("videoURL"));
 		videoURLField.setValue(videoURLValue);
 		this.add(FormField.getFormField("Video URL", videoURLField));
-		videoURLField.setWidth("500px");
+		videoURLField.setWidth("300px");
+
+		String problem1Name = ConvertJson.convertToString(interview
+				.get("problem1"));
+		problem1Field = new ProblemsListbox(problem1Name);
+		this.add(FormField.getFormField("Problem 1", problem1Field));
+
+		String problem2Name = ConvertJson.convertToString(interview
+				.get("problem2"));
+		problem2Field = new ProblemsListbox(problem2Name);
+		this.add(FormField.getFormField("Problem 2", problem2Field));
 
 		String notesValue = ConvertJson.convertToString(interview.get("notes"));
 		notes.setHTML(notesValue);
 		this.add(FormField.getFormField("Notes", notes));
-		notes.setSize("500px", "200px");
-
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-
-		this.add(new ButtonSaveInterview(interview));
+		notes.setSize("300px", "100px");
 	}
 }

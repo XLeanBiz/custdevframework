@@ -1,7 +1,8 @@
 package com.custdevframework.client.persona.show;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.persona.edit.ButtonEditPersona;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
@@ -15,20 +16,26 @@ public class ShowPersona extends VerticalPanel {
 
 	public ShowPersona(JSONObject personaJson) {
 
+		String personaName = ConvertJson.convertToString(personaJson.get("ID"));
+
 		this.setSpacing(20);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
-		this.add(new ButtonEditPersona(personaJson));
+		HorizontalPanel hpButtons = new HorizontalPanel();
+		hpButtons.setSpacing(5);
+
+		hpButtons.add(new ButtonEditPersona(personaJson));
+		hpButtons.add(new ButtonAddPersonaInterview(personaName));
+
+		this.add(hpButtons);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
-
-		String personaName = ConvertJson.convertToString(personaJson.get("ID"));
 
 		HTML name = new HTML("<font color=blue size=4><b>" + personaName
 				+ "</b></font>");
 		this.add(name);
-		
+
 		this.add(new Label(" "));
 
 		HorizontalPanel hp = new HorizontalPanel();
@@ -36,7 +43,7 @@ public class ShowPersona extends VerticalPanel {
 
 		hp.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 		hp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-		
+
 		String imageURLValue = ConvertJson.convertToString(personaJson
 				.get("imageURL"));
 
@@ -73,8 +80,7 @@ public class ShowPersona extends VerticalPanel {
 		VerticalPanel vpGoals = new VerticalPanel();
 		vpGoals.setSize("250px", "100px");
 		vpGoals.add(new HTML("<b>Goals</b>"));
-		vpGoals.add(new HTML("<blockquote>" + goalsValue
-				+ "</blockquote>"));
+		vpGoals.add(new HTML("<blockquote>" + goalsValue + "</blockquote>"));
 		table.setWidget(2, 0, vpGoals);
 
 		String needsValue = ConvertJson.convertToString(personaJson
@@ -82,8 +88,7 @@ public class ShowPersona extends VerticalPanel {
 		VerticalPanel vpNeeds = new VerticalPanel();
 		vpNeeds.setSize("250px", "100px");
 		vpNeeds.add(new HTML("<b>Needs</b>"));
-		vpNeeds.add(new HTML("<blockquote>" + needsValue
-				+ "</blockquote>"));
+		vpNeeds.add(new HTML("<blockquote>" + needsValue + "</blockquote>"));
 		table.setWidget(2, 2, vpNeeds);
 
 		table.setHTML(3, 0, "<hr>");

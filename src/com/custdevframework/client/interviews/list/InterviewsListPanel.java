@@ -2,10 +2,11 @@ package com.custdevframework.client.interviews.list;
 
 import java.util.Date;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.home.Home;
-import com.custdevframework.client.interviews.edit.AddInterviewButton;
+import com.custdevframework.client.interviews.questions.persona.AddPersonaInterviewButton;
 import com.custdevframework.client.interviews.show.ShowInterview;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONArray;
@@ -19,7 +20,7 @@ public class InterviewsListPanel extends VerticalPanel {
 
 		this.setSpacing(20);
 
-		this.add(new AddInterviewButton());
+		this.add(new AddPersonaInterviewButton());
 
 		for (int i = 0; i < interviews.size(); i++) {
 

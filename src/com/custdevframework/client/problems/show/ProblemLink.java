@@ -20,7 +20,7 @@ public class ProblemLink extends HTML {
 
 					new UseTracking(this.getClass().getName());
 
-					//GetPersona.get(problem);
+					GetProblem.get(problem);
 				}
 			});
 		}

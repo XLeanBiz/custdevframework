@@ -1,7 +1,7 @@
 package com.custdevframework.server.problems;
 
-import com.custdevframework.server.utilities.EncryptText;
-import com.custdevframework.server.utilities.URLUtilities;
+import co.uniqueid.authentication.client.utilities.EncryptText;
+import co.uniqueid.authentication.server.utilities.URLUtilities;
 
 public class ListProblems {
 

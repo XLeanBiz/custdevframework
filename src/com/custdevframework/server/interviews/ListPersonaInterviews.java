@@ -1,22 +1,25 @@
 package com.custdevframework.server.interviews;
 
-import com.custdevframework.server.utilities.EncryptText;
-import com.custdevframework.server.utilities.URLUtilities;
+import co.uniqueid.authentication.client.utilities.EncryptText;
+import co.uniqueid.authentication.server.utilities.URLUtilities;
 
-public class ListInterviews {
+public class ListPersonaInterviews {
 
 	// http://jsonpfy.startupsdata.appspot.com/ListDataService
 	// ?kind=Interviews
 	// &filterField=company&filterValue=
+	// &sortField=datetime&sortDirection=desc
 
 	private static String listUrl = "https://jsonpfy.startupsdata.appspot.com/ListDataService";
 
 	public static String list(final String company) {
 
-		String parameters = "kind=Interviews";
+		String parameters = "kind=PersonaInterviews";
 		
 		parameters += "&filterField=company&filterValue="
 				+ company;
+		
+	//	parameters += "&sortField=datetime&sortDirection=desc";
 
 		final String jsonString = URLUtilities.fetchURLPost(listUrl,
 				parameters + EncryptText.getAuthParameter());

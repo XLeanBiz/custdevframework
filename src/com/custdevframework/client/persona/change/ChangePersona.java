@@ -1,10 +1,11 @@
 package com.custdevframework.client.persona.change;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.persona.list.ListPersonas;
 import com.custdevframework.client.persona.list.PersonaListPanel;
 import com.custdevframework.client.persona.list.PersonaListbox;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 

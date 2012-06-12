@@ -17,9 +17,15 @@ public interface CustDevFrameworkService extends RemoteService {
 	
 	String listProblems();
 	
+	String getProblem(String name);
+	
 	String saveProblem(String problem);
 	
-	String listInterviews(final String company);
+	String listPersonaInterviews(final String company);
 	
-	String saveInterview(String interview);
+	String savePersonaInterview(String interview);
+	
+	String listProblemInterviews(final String company);
+	
+	String saveProblemInterview(String interview);
 }

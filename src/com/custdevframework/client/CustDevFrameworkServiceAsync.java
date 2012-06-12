@@ -15,9 +15,17 @@ public interface CustDevFrameworkServiceAsync {
 
 	void listProblems(AsyncCallback<String> callback);
 
+	void getProblem(String name, AsyncCallback<String> callback);
+
 	void saveProblem(String problem, AsyncCallback<String> callback);
 
-	void listInterviews(final String company, AsyncCallback<String> callback);
+	void listPersonaInterviews(final String company,
+			AsyncCallback<String> callback);
 
-	void saveInterview(String interview, AsyncCallback<String> callback);
+	void savePersonaInterview(String interview, AsyncCallback<String> callback);
+
+	void listProblemInterviews(final String company,
+			AsyncCallback<String> callback);
+
+	void saveProblemInterview(String interview, AsyncCallback<String> callback);
 }

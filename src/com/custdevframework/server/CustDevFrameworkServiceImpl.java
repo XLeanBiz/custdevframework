@@ -1,16 +1,18 @@
 package com.custdevframework.server;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.custdevframework.client.CustDevFrameworkService;
-import com.custdevframework.server.interviews.ListInterviews;
-import com.custdevframework.server.interviews.SaveInterview;
+import com.custdevframework.server.interviews.ListPersonaInterviews;
+import com.custdevframework.server.interviews.ListProblemInterviews;
+import com.custdevframework.server.interviews.SavePersonaInterview;
+import com.custdevframework.server.interviews.SaveProblemInterview;
 import com.custdevframework.server.personas.GetPersona;
 import com.custdevframework.server.personas.ListPersonas;
 import com.custdevframework.server.personas.SavePersona;
+import com.custdevframework.server.problems.GetProblem;
 import com.custdevframework.server.problems.ListProblems;
 import com.custdevframework.server.problems.SaveProblem;
+import com.google.appengine.repackaged.org.json.JSONException;
+import com.google.appengine.repackaged.org.json.JSONObject;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -50,6 +52,11 @@ public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 		return ListProblems.list();
 	}
 
+	public String getProblem(final String name) {
+
+		return GetProblem.get(name);
+	}
+
 	public String saveProblem(final String problemString) {
 
 		JSONObject json;
@@ -67,18 +74,18 @@ public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 		return null;
 	}
 
-	public String listInterviews(final String company) {
+	public String listPersonaInterviews(final String company) {
 
-		return ListInterviews.list(company);
+		return ListPersonaInterviews.list(company);
 	}
 
-	public String saveInterview(final String interview) {
+	public String savePersonaInterview(final String interview) {
 
 		JSONObject json;
 		try {
 			json = new JSONObject(interview);
 
-			return SaveInterview.save(json);
+			return SavePersonaInterview.save(json);
 
 		} catch (JSONException e) {
 
@@ -88,4 +95,24 @@ public class CustDevFrameworkServiceImpl extends RemoteServiceServlet implements
 		return null;
 	}
 
+	public String listProblemInterviews(final String company) {
+
+		return ListProblemInterviews.list(company);
+	}
+
+	public String saveProblemInterview(final String interview) {
+
+		JSONObject json;
+		try {
+			json = new JSONObject(interview);
+
+			return SaveProblemInterview.save(json);
+
+		} catch (JSONException e) {
+
+			e.printStackTrace();
+		}
+
+		return null;
+	}
 }

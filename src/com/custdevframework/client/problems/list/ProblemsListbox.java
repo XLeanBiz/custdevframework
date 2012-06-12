@@ -1,7 +1,8 @@
 package com.custdevframework.client.problems.list;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.InitializeCustDevFramework;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.ListBox;
 
@@ -11,7 +12,7 @@ public class ProblemsListbox extends ListBox {
 
 		if (InitializeCustDevFramework.problemsList != null) {
 
-			this.setWidth("200px");
+			this.setWidth("400px");
 
 			this.addItem("");
 

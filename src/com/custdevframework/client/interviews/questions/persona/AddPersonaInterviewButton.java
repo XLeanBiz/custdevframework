@@ -1,16 +1,17 @@
-package com.custdevframework.client.problems.change;
+package com.custdevframework.client.interviews.questions.persona;
 
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.Button;
 
-public class ChangeProblemButton extends Button {
+public class AddPersonaInterviewButton extends Button {
 
-	public ChangeProblemButton() {
+	public AddPersonaInterviewButton() {
 
-		this.setText("Edit Problem");
+		this.setText("Add New Interview");
 
 		this.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -18,7 +19,7 @@ public class ChangeProblemButton extends Button {
 				new UseTracking(this.getClass().getName());
 
 				Home.vpMain.clear();
-				Home.vpMain.add(new ChangeProblem());
+				Home.vpMain.add(new EditPersonaInterview(new JSONObject()));
 			}
 		});
 	}

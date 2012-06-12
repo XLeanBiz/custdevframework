@@ -1,7 +1,8 @@
 package com.custdevframework.client.persona.list;
 
+import co.uniqueid.authentication.client.utilities.ConvertJson;
+
 import com.custdevframework.client.InitializeCustDevFramework;
-import com.custdevframework.client.utilities.ConvertJson;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.ListBox;
 
@@ -11,7 +12,7 @@ public class PersonaListbox extends ListBox {
 
 		if (InitializeCustDevFramework.personasList != null) {
 
-			this.setWidth("200px");
+			this.setWidth("300px");
 
 			this.addItem("");
 
