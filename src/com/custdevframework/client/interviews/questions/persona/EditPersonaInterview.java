@@ -39,27 +39,37 @@ public class EditPersonaInterview extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		String companyUniqueID = ConvertJson.convertToString(interview
-				.get("company"));
-		if (companyUniqueID == null) {
-
-			companyUniqueID = ConvertJson
-					.convertToString(UniqueIDGlobalVariables.companyUniqueID
-							.get("ID"));
-
-			ConvertJson.setStringValue(interview, companyUniqueID, "company");
-		}
+		String interviewID = ConvertJson.convertToString(interview.get("ID"));
 
 		String interviewerUniqueID = ConvertJson.convertToString(interview
 				.get("interviewer"));
-		if (interviewerUniqueID == null) {
 
-			interviewerUniqueID = ConvertJson
-					.convertToString(UniqueIDGlobalVariables.uniqueID.get("ID"));
+		String companyUniqueID = ConvertJson.convertToString(interview
+				.get("company"));
 
-			ConvertJson.setStringValue(interview, interviewerUniqueID,
-					"interviewer");
+		if (interviewID == null) {
+
+			if (companyUniqueID == null) {
+
+				companyUniqueID = ConvertJson
+						.convertToString(UniqueIDGlobalVariables.companyUniqueID
+								.get("ID"));
+
+				ConvertJson.setStringValue(interview, companyUniqueID,
+						"company");
+			}
+
+			if (interviewerUniqueID == null) {
+
+				interviewerUniqueID = ConvertJson
+						.convertToString(UniqueIDGlobalVariables.uniqueID
+								.get("ID"));
+
+				ConvertJson.setStringValue(interview, interviewerUniqueID,
+						"interviewer");
+			}
 		}
+		
 		this.add(FormField.getStringField("Interviewer", interviewerUniqueID));
 
 		String date = ConvertJson.convertToString(interview.get("datetime"));

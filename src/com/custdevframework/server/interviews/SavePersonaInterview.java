@@ -55,13 +55,25 @@ public class SavePersonaInterview {
 				"mainProblem");
 
 		parameters += URLUtilities.addSaveParameterText(interview,
-				"secondMainProblem");
+				"mainProblemRate");
 
 		parameters += URLUtilities.addSaveParameterText(interview,
 				"solutionMainProblem");
 
 		parameters += URLUtilities.addSaveParameterText(interview,
+				"secondMainProblem");
+
+		parameters += URLUtilities.addSaveParameterText(interview,
+				"secondProblemRate");
+
+		parameters += URLUtilities.addSaveParameterText(interview,
 				"solutionSecondProblem");
+
+		parameters += URLUtilities.addSaveParameterText(interview,
+				"otherProblems");
+
+		parameters += URLUtilities.addSaveParameterText(interview,
+				"openComments");
 
 		URLUtilities.fetchURLPost(saveUrl,
 				parameters + EncryptText.getAuthParameter());

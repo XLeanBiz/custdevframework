@@ -2,6 +2,7 @@ package com.custdevframework.client.interviews.questions.problem;
 
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
+import com.custdevframework.client.interviews.questions.persona.EditPersonaInterviewQuestions;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
@@ -64,6 +65,16 @@ public class ButtonSaveProblemInterview extends Button {
 				EditProblemInterviewQuestions.whyHaveProblem.getHTML(),
 				"whyHaveProblem");
 
+		ConvertJson
+				.setStringValue(
+						interview,
+						EditProblemInterviewQuestions.problemRateField
+								.getValue(EditProblemInterviewQuestions.problemRateField
+										.getSelectedIndex()), "problemRate");
+		
+		ConvertJson.setStringValue(interview,
+				EditProblemInterviewQuestions.whyHaveProblem.getHTML(),
+				"make5Problem");
 	}
 
 }

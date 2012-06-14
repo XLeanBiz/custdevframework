@@ -16,6 +16,8 @@ public class SavePersona {
 
 		parameters += "&ID=" + JSONUtilities.getString(personaJson, "ID");
 
+		parameters += URLUtilities.addSaveParameterString(personaJson, "name");
+
 		parameters += URLUtilities.addSaveParameterString(personaJson,
 				"imageURL");
 

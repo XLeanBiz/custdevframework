@@ -2,6 +2,7 @@ package com.custdevframework.client.interviews.questions.persona;
 
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
+import com.custdevframework.client.interviews.questions.ProblemRateListbox;
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
@@ -16,11 +17,19 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 
 	public static RichTextArea mainProblem = new RichTextArea();
 
-	public static RichTextArea secondMainProblem = new RichTextArea();
+	public static ProblemRateListbox mainProblemRateField;
 
 	public static RichTextArea solutionMainProblem = new RichTextArea();
 
+	public static RichTextArea secondMainProblem = new RichTextArea();
+
+	public static ProblemRateListbox secondProblemRateField;
+
 	public static RichTextArea solutionSecondProblem = new RichTextArea();
+	
+	public static RichTextArea otherProblems = new RichTextArea();
+	
+	public static RichTextArea openComments = new RichTextArea();
 
 	public EditPersonaInterviewQuestions(JSONObject interview) {
 
@@ -54,6 +63,12 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				mainProblem));
 		mainProblem.setSize("500px", "80px");
 
+		String mainProblemRate = ConvertJson.convertToString(interview
+				.get("mainProblemRate"));
+		mainProblemRateField = new ProblemRateListbox(mainProblemRate);
+		this.add(FormField.getVerticalFormField(
+				"How do you rate this problem?", mainProblemRateField));
+
 		String solutionMainProblemValue = ConvertJson.convertToString(interview
 				.get("solutionMainProblem"));
 		solutionMainProblem.setHTML(solutionMainProblemValue);
@@ -68,6 +83,12 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				"What is your second main problem as a " + personaName + "?",
 				secondMainProblem));
 		secondMainProblem.setSize("500px", "80px");
+		
+		String secondProblemRate = ConvertJson.convertToString(interview
+				.get("secondProblemRate"));
+		secondProblemRateField = new ProblemRateListbox(secondProblemRate);
+		this.add(FormField.getVerticalFormField(
+				"How do you rate this problem?", secondProblemRateField));
 
 		String solutionSecondProblemValue = ConvertJson
 				.convertToString(interview.get("solutionSecondProblem"));
@@ -76,5 +97,21 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				"How are you solving this problem today?",
 				solutionSecondProblem));
 		solutionSecondProblem.setSize("500px", "80px");
+		
+		String otherProblemsValue = ConvertJson
+				.convertToString(interview.get("otherProblems"));
+		otherProblems.setHTML(otherProblemsValue);
+		this.add(FormField.getVerticalFormField(
+				"Other Problems?",
+				otherProblems));
+		otherProblems.setSize("500px", "80px");
+		
+		String openCommentsValue = ConvertJson
+				.convertToString(interview.get("openComments"));
+		openComments.setHTML(openCommentsValue);
+		this.add(FormField.getVerticalFormField(
+				"Open comments:",
+				openComments));
+		openComments.setSize("500px", "80px");
 	}
 }

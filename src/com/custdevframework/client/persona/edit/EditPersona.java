@@ -12,6 +12,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class EditPersona extends VerticalPanel {
 
+	public static TextBox customerSegment = new TextBox();
+	
 	public static TextBox name = new TextBox();
 
 	public static TextBox imageURL = new TextBox();
@@ -33,9 +35,15 @@ public class EditPersona extends VerticalPanel {
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
 		String personaName = ConvertJson.convertToString(personaJson.get("ID"));
-		name.setValue(personaName);
+		customerSegment.setValue(personaName);
 		this.add(FormField.getFormField(
-				"<font color=red>*</font> Persona Name", name));
+				"<font color=red>*</font> Customer Segment", customerSegment));
+		customerSegment.setWidth("500px");
+		
+		String nickName = ConvertJson.convertToString(personaJson.get("ID"));
+		name.setValue(nickName);
+		this.add(FormField.getFormField(
+				"Name", name));
 		name.setWidth("500px");
 
 		String imageURLValue = ConvertJson.convertToString(personaJson

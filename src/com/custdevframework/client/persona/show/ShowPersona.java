@@ -32,9 +32,21 @@ public class ShowPersona extends VerticalPanel {
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
-		HTML name = new HTML("<font color=blue size=4><b>" + personaName
-				+ "</b></font>");
-		this.add(name);
+		if (personaName != null) {
+
+			HTML name = new HTML("<font color=blue size=4><b>"
+					+ personaName.toUpperCase() + "</b></font>");
+			this.add(name);
+		}
+
+		String nickName = ConvertJson.convertToString(personaJson.get("name"));
+		if (nickName != null) {
+
+			HTML nickNameHTML = new HTML(
+					"<font color=red size=4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>"
+							+ nickName.toUpperCase() + "</b></font>");
+			this.add(nickNameHTML);
+		}
 
 		this.add(new Label(" "));
 

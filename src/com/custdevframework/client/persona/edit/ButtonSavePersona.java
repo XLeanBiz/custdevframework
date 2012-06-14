@@ -19,11 +19,13 @@ public class ButtonSavePersona extends Button {
 			@Override
 			public void onClick(ClickEvent event) {
 
-				if (EditPersona.name.getValue() != null
-						&& !"".equals(EditPersona.name.getValue())) {
+				if (EditPersona.customerSegment.getValue() != null
+						&& !"".equals(EditPersona.customerSegment.getValue())) {
 
 					ConvertJson.setStringValue(personaJson,
-							EditPersona.name.getValue(), "ID");
+							EditPersona.customerSegment.getValue(), "ID");
+					ConvertJson.setStringValue(personaJson,
+							EditPersona.name.getValue(), "name");
 					ConvertJson.setStringValue(personaJson,
 							EditPersona.imageURL.getValue(), "imageURL");
 					ConvertJson.setStringValue(personaJson,
@@ -40,7 +42,7 @@ public class ButtonSavePersona extends Button {
 					SavePersona.save(personaJson);
 				} else {
 
-					Window.alert("Please, enter the Name of the persona.");
+					Window.alert("Please, enter the Type of the persona.");
 				}
 			}
 		});

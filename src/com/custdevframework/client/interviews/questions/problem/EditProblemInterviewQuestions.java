@@ -2,6 +2,7 @@ package com.custdevframework.client.interviews.questions.problem;
 
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
+import com.custdevframework.client.interviews.questions.ProblemRateListbox;
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HTML;
@@ -16,6 +17,10 @@ public class EditProblemInterviewQuestions extends VerticalPanel {
 	public static RichTextArea haveProblem = new RichTextArea();
 
 	public static RichTextArea whyHaveProblem = new RichTextArea();
+	
+	public static ProblemRateListbox problemRateField;
+	
+	public static RichTextArea make5Problem = new RichTextArea();
 
 	public EditProblemInterviewQuestions(JSONObject interview,
 			final JSONObject problemJson) {
@@ -54,6 +59,18 @@ public class EditProblemInterviewQuestions extends VerticalPanel {
 		whyHaveProblem.setHTML(whyHaveProblemValue);
 		this.add(FormField.getVerticalFormField("Why?", whyHaveProblem));
 		whyHaveProblem.setSize("500px", "80px");
+		
+		String problemRate = ConvertJson.convertToString(interview
+				.get("problemRate"));
+		problemRateField = new ProblemRateListbox(problemRate);
+		this.add(FormField.getVerticalFormField(
+				"How do you rate this problem?", problemRateField));
+		
+		String make5ProblemValue = ConvertJson.convertToString(interview
+				.get("make5Problem"));
+		make5Problem.setHTML(make5ProblemValue);
+		this.add(FormField.getVerticalFormField("What will make this problem a 5?", make5Problem));
+		make5Problem.setSize("500px", "80px");
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
