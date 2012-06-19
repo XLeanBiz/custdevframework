@@ -1,9 +1,9 @@
 package com.custdevframework.client.persona.change;
 
+import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.InitializeCustDevFramework;
-import com.custdevframework.client.persona.list.ListPersonas;
 import com.custdevframework.client.persona.list.PersonaListPanel;
 import com.custdevframework.client.persona.list.PersonaListbox;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -19,25 +19,35 @@ public class ChangePersona extends VerticalPanel {
 
 			this.setSpacing(20);
 
-			HorizontalPanel hp = new HorizontalPanel();
-			
-			hp.setSpacing(20);
-			
-			personaList = new PersonaListbox(
-					ConvertJson.convertToString(InitializeCustDevFramework.startupdata
-							.get("Persona")));
+			if (UniqueIDGlobalVariables.companyUniqueID != null) {
 
-			hp.add(personaList);
-
-			hp.add(new ButtonSavePersona());
-
-			this.add(hp);
+				this.add(personaChangePanel());
+			}
 
 			this.add(new PersonaListPanel());
-
-		} else {
-
-			ListPersonas.list();
 		}
+	}
+
+	private HorizontalPanel personaChangePanel() {
+
+		HorizontalPanel hp = new HorizontalPanel();
+
+		hp.setSpacing(20);
+
+		String persona = null;
+		if (InitializeCustDevFramework.startupdata != null) {
+
+			persona = ConvertJson
+					.convertToString(InitializeCustDevFramework.startupdata
+							.get("Persona"));
+		}
+
+		personaList = new PersonaListbox(persona);
+
+		hp.add(personaList);
+
+		hp.add(new ButtonSavePersona());
+
+		return hp;
 	}
 }

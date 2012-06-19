@@ -1,5 +1,6 @@
 package com.custdevframework.client.interviews.list;
 
+import com.custdevframework.client.home.Home;
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -18,7 +19,12 @@ public class ButtonListInterviews extends Button {
 
 				new UseTracking(this.getClass().getName());
 
+				Home.vpMain.clear();
+				Home.vpMain.add(new InterviewsListPanel());
+
 				ListPersonaInterviews.list();
+
+				ListProblemInterviews.list();
 			}
 		});
 

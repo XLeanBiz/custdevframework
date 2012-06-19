@@ -10,7 +10,7 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
-public class ListPersonaInterviews {
+public class ListProblemInterviews {
 
 	public static void list() {
 
@@ -23,7 +23,7 @@ public class ListPersonaInterviews {
 					.convertToString(UniqueIDGlobalVariables.companyUniqueID
 							.get("ID"));
 
-			custDevService.listPersonaInterviews(companyUniqueID,
+			custDevService.listProblemInterviews(companyUniqueID,
 					new AsyncCallback<String>() {
 
 						public void onFailure(final Throwable caught) {
@@ -37,9 +37,9 @@ public class ListPersonaInterviews {
 								JSONArray jsonArray = (JSONArray) JSONParser
 										.parseStrict(jsonResults);
 
-								InterviewsListPanel.vpPersonaInterviews.clear();
-								InterviewsListPanel.vpPersonaInterviews
-										.add(new PersonaInterviewsListPanel(
+								InterviewsListPanel.vpProblemInterviews.clear();
+								InterviewsListPanel.vpProblemInterviews
+										.add(new ProblemInterviewsListPanel(
 												jsonArray));
 							}
 						}

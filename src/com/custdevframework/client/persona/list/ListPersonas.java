@@ -3,6 +3,8 @@ package com.custdevframework.client.persona.list;
 import com.custdevframework.client.CustDevFrameworkService;
 import com.custdevframework.client.CustDevFrameworkServiceAsync;
 import com.custdevframework.client.InitializeCustDevFramework;
+import com.custdevframework.client.home.Home;
+import com.custdevframework.client.persona.change.ChangePersona;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONParser;
@@ -30,10 +32,10 @@ public class ListPersonas {
 
 					InitializeCustDevFramework.personasList = jsonArray;
 
-					InitializeCustDevFramework.reinit();
+					Home.vpMain.clear();
+					Home.vpMain.add(new ChangePersona());
 				}
 			}
 		});
 	}
-
 }

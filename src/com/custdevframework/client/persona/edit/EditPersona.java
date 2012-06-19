@@ -43,7 +43,7 @@ public class EditPersona extends VerticalPanel {
 		String nickName = ConvertJson.convertToString(personaJson.get("ID"));
 		name.setValue(nickName);
 		this.add(FormField.getFormField(
-				"Name", name));
+				"Fictional Name", name));
 		name.setWidth("500px");
 
 		String imageURLValue = ConvertJson.convertToString(personaJson

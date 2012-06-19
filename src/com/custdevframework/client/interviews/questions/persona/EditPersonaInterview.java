@@ -59,7 +59,8 @@ public class EditPersonaInterview extends VerticalPanel {
 						"company");
 			}
 
-			if (interviewerUniqueID == null) {
+			if (interviewerUniqueID == null
+					&& UniqueIDGlobalVariables.uniqueID != null) {
 
 				interviewerUniqueID = ConvertJson
 						.convertToString(UniqueIDGlobalVariables.uniqueID
@@ -69,7 +70,7 @@ public class EditPersonaInterview extends VerticalPanel {
 						"interviewer");
 			}
 		}
-		
+
 		this.add(FormField.getStringField("Interviewer", interviewerUniqueID));
 
 		String date = ConvertJson.convertToString(interview.get("datetime"));

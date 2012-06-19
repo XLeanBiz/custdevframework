@@ -4,7 +4,7 @@ import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.InitializeCustDevFramework;
 import com.custdevframework.client.interviews.list.ButtonListInterviews;
-import com.custdevframework.client.persona.change.ChangePersona;
+import com.custdevframework.client.persona.list.ListPersonas;
 import com.custdevframework.client.persona.show.PersonaLink;
 import com.custdevframework.client.problems.change.ChangeProblem;
 import com.custdevframework.client.problems.show.ProblemLink;
@@ -44,14 +44,14 @@ public class HomeLists extends HorizontalPanel {
 		vp.setSpacing(20);
 		vp.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		HTML personaTitle = new HTML("<a href=#><font color=black><b>PERSONA</b></font></a>");
+		HTML personaTitle = new HTML(
+				"<a href=#><font color=black><b>PERSONA</b></font></a>");
 		personaTitle.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
 				new UseTracking(this.getClass().getName());
 
-				Home.vpMain.clear();
-				Home.vpMain.add(new ChangePersona());
+				ListPersonas.list();
 			}
 		});
 		vp.add(personaTitle);
@@ -70,7 +70,8 @@ public class HomeLists extends HorizontalPanel {
 		vpInterview.setSpacing(20);
 		vpInterview.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 
-		HTML problemTitle = new HTML("<a href=#><font color=black><b>PROBLEM</b></font></a>");
+		HTML problemTitle = new HTML(
+				"<a href=#><font color=black><b>PROBLEM</b></font></a>");
 		problemTitle.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 
@@ -121,14 +122,17 @@ public class HomeLists extends HorizontalPanel {
 
 	public static void initHomeLists() {
 
-		vpPersona.clear();
-		vpPersona.add(new PersonaLink(ConvertJson
-				.convertToString(InitializeCustDevFramework.startupdata
-						.get("Persona"))));
+		if (InitializeCustDevFramework.startupdata != null) {
 
-		vpProblem.clear();
-		vpProblem.add(new ProblemLink(ConvertJson
-				.convertToString(InitializeCustDevFramework.startupdata
-						.get("Problem"))));
+			vpPersona.clear();
+			vpPersona.add(new PersonaLink(ConvertJson
+					.convertToString(InitializeCustDevFramework.startupdata
+							.get("Persona"))));
+
+			vpProblem.clear();
+			vpProblem.add(new ProblemLink(ConvertJson
+					.convertToString(InitializeCustDevFramework.startupdata
+							.get("Problem"))));
+		}
 	}
 }

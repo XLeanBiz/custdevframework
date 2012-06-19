@@ -48,13 +48,19 @@ public class SaveProblemInterview {
 
 		parameters += URLUtilities.addSaveParameterText(interview,
 				"whyHaveProblem");
-		
+
 		parameters += URLUtilities.addSaveParameterString(interview,
 				"problemRate");
 
 		parameters += URLUtilities.addSaveParameterText(interview,
+				"howSolvingProblem");
+
+		parameters += URLUtilities.addSaveParameterText(interview,
 				"make5Problem");
 
+		parameters += URLUtilities.addSaveParameterText(interview,
+				"openComments");
+		
 		URLUtilities.fetchURLPost(saveUrl,
 				parameters + EncryptText.getAuthParameter());
 

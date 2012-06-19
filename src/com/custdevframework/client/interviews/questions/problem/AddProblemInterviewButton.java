@@ -1,4 +1,4 @@
-package com.custdevframework.client.interviews.questions.persona;
+package com.custdevframework.client.interviews.questions.problem;
 
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.utilities.UseTracking;
@@ -7,11 +7,11 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.Button;
 
-public class AddPersonaInterviewButton extends Button {
+public class AddProblemInterviewButton extends Button {
 
-	public AddPersonaInterviewButton() {
+	public AddProblemInterviewButton() {
 
-		this.setText("New Persona Interview");
+		this.setText("New Problem Interview");
 
 		this.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
@@ -19,7 +19,8 @@ public class AddPersonaInterviewButton extends Button {
 				new UseTracking(this.getClass().getName());
 
 				Home.vpMain.clear();
-				Home.vpMain.add(new EditPersonaInterviewPage(new JSONObject()));
+				Home.vpMain.add(new EditProblemInterviewPage(new JSONObject(),
+						null));
 			}
 		});
 	}

@@ -1,4 +1,4 @@
-package com.custdevframework.client.interviews.show;
+package com.custdevframework.client.interviews.show.problem;
 
 import java.util.Date;
 
@@ -9,15 +9,15 @@ import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
-public class ShowInterview extends VerticalPanel {
+public class ShowProblemInterview extends VerticalPanel {
 
-	public ShowInterview(JSONObject interview) {
+	public ShowProblemInterview(JSONObject interview) {
 
 		this.setSpacing(20);
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
-		this.add(new ButtonEditInterview(interview));
+		this.add(new ButtonEditProblemInterview(interview));
 
 		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 

@@ -19,7 +19,7 @@ public class ListProblemInterviews {
 		parameters += "&filterField=company&filterValue="
 				+ company;
 		
-		parameters += "&sortField=datetime&sortDirection=desc";
+	//	parameters += "&sortField=datetime&sortDirection=desc";
 
 		final String jsonString = URLUtilities.fetchURLPost(listUrl,
 				parameters + EncryptText.getAuthParameter());

@@ -47,7 +47,8 @@ public class EditProblemInterview extends VerticalPanel {
 
 		String interviewerUniqueID = ConvertJson.convertToString(interview
 				.get("interviewer"));
-		if (interviewerUniqueID == null) {
+		if (interviewerUniqueID == null
+				&& UniqueIDGlobalVariables.uniqueID != null) {
 
 			interviewerUniqueID = ConvertJson
 					.convertToString(UniqueIDGlobalVariables.uniqueID.get("ID"));
