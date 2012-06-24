@@ -6,7 +6,7 @@ import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.interviews.questions.persona.AddPersonaInterviewButton;
-import com.custdevframework.client.interviews.show.persona.ShowPersonaInterview;
+import com.custdevframework.client.interviews.show.persona.ShowPersonaInterviewPage;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONArray;
@@ -40,7 +40,8 @@ public class PersonaInterviewsListPanel extends VerticalPanel {
 				public void onClick(ClickEvent event) {
 
 					Home.vpMain.clear();
-					Home.vpMain.add(new ShowPersonaInterview(interviewJson));
+					Home.vpMain
+							.add(new ShowPersonaInterviewPage(interviewJson));
 				}
 			});
 

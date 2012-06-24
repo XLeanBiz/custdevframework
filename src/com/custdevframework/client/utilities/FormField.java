@@ -68,4 +68,18 @@ public class FormField {
 		return hp;
 	}
 
+	public static VerticalPanel getStringFieldVertical(final String label,
+			final String fieldValue) {
+
+		VerticalPanel vp = new VerticalPanel();
+
+		HTML title = new HTML("<b>" + label + "</b>");
+		vp.add(title);
+
+		HTML value = new HTML("&nbsp;&nbsp;&nbsp;&nbsp;" + fieldValue);
+		vp.add(value);
+
+		return vp;
+	}
+
 }

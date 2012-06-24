@@ -6,7 +6,6 @@ import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ShowProblemInterview extends VerticalPanel {
@@ -14,12 +13,6 @@ public class ShowProblemInterview extends VerticalPanel {
 	public ShowProblemInterview(JSONObject interview) {
 
 		this.setSpacing(20);
-
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
-
-		this.add(new ButtonEditProblemInterview(interview));
-
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
 		String interviewer = ConvertJson.convertToString(interview
 				.get("interviewer"));

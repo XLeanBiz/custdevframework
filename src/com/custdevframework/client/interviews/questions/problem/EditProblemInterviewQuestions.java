@@ -73,7 +73,7 @@ public class EditProblemInterviewQuestions extends VerticalPanel {
 				"howSolvingProblem");
 		howSolvingProblem.setHTML(howSolvingProblemValue);
 		this.add(FormField.getVerticalFormField(
-				"How are you solving this problem?", howSolvingProblem));
+				"How are you solving this problem today?", howSolvingProblem));
 		howSolvingProblem.setSize("500px", "80px");
 
 		String make5ProblemValue = ConvertJson.getStringValue(interview,
@@ -86,11 +86,7 @@ public class EditProblemInterviewQuestions extends VerticalPanel {
 		String openCommentsValue = ConvertJson.getStringValue(interview,
 				"openComments");
 		openComments.setHTML(openCommentsValue);
-		this.add(FormField.getVerticalFormField("Open comments:", openComments));
+		this.add(FormField.getVerticalFormField("Comments?", openComments));
 		openComments.setSize("500px", "80px");
-
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-
-		this.add(new ButtonSaveProblemInterview(interview));
 	}
 }

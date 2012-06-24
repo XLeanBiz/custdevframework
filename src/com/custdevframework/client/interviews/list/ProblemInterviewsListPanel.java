@@ -6,7 +6,7 @@ import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.home.Home;
 import com.custdevframework.client.interviews.questions.problem.AddProblemInterviewButton;
-import com.custdevframework.client.interviews.show.problem.ShowProblemInterview;
+import com.custdevframework.client.interviews.show.problem.ShowProblemInterviewPage;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.json.client.JSONArray;
@@ -40,7 +40,8 @@ public class ProblemInterviewsListPanel extends VerticalPanel {
 				public void onClick(ClickEvent event) {
 
 					Home.vpMain.clear();
-					Home.vpMain.add(new ShowProblemInterview(interviewJson));
+					Home.vpMain
+							.add(new ShowProblemInterviewPage(interviewJson));
 				}
 			});
 

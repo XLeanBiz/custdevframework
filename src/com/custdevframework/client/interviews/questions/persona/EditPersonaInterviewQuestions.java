@@ -26,9 +26,9 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 	public static ProblemRateListbox secondProblemRateField;
 
 	public static RichTextArea solutionSecondProblem = new RichTextArea();
-	
+
 	public static RichTextArea otherProblems = new RichTextArea();
-	
+
 	public static RichTextArea openComments = new RichTextArea();
 
 	public EditPersonaInterviewQuestions(JSONObject interview) {
@@ -44,14 +44,14 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				.get("describeYourself"));
 		describeYourself.setHTML(describeYourselfValue);
 		this.add(FormField.getVerticalFormField(
-				"How do you describe yourself as a " + personaName + "?",
+				"How would you describe yourself as a " + personaName + "?",
 				describeYourself));
 		describeYourself.setSize("500px", "80px");
 
 		String routineValue = ConvertJson.convertToString(interview
 				.get("routine"));
 		routine.setHTML(routineValue);
-		this.add(FormField.getVerticalFormField("How is your routine as a "
+		this.add(FormField.getVerticalFormField("How is your typical day as a "
 				+ personaName + "?", routine));
 		routine.setSize("500px", "80px");
 
@@ -83,7 +83,7 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				"What is your second main problem as a " + personaName + "?",
 				secondMainProblem));
 		secondMainProblem.setSize("500px", "80px");
-		
+
 		String secondProblemRate = ConvertJson.convertToString(interview
 				.get("secondProblemRate"));
 		secondProblemRateField = new ProblemRateListbox(secondProblemRate);
@@ -97,21 +97,18 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				"How are you solving this problem today?",
 				solutionSecondProblem));
 		solutionSecondProblem.setSize("500px", "80px");
-		
-		String otherProblemsValue = ConvertJson
-				.convertToString(interview.get("otherProblems"));
+
+		String otherProblemsValue = ConvertJson.convertToString(interview
+				.get("otherProblems"));
 		otherProblems.setHTML(otherProblemsValue);
-		this.add(FormField.getVerticalFormField(
-				"Other Problems?",
+		this.add(FormField.getVerticalFormField("Other Problems?",
 				otherProblems));
 		otherProblems.setSize("500px", "80px");
-		
-		String openCommentsValue = ConvertJson
-				.convertToString(interview.get("openComments"));
+
+		String openCommentsValue = ConvertJson.convertToString(interview
+				.get("openComments"));
 		openComments.setHTML(openCommentsValue);
-		this.add(FormField.getVerticalFormField(
-				"Open comments:",
-				openComments));
+		this.add(FormField.getVerticalFormField("Comments?", openComments));
 		openComments.setSize("500px", "80px");
 	}
 }

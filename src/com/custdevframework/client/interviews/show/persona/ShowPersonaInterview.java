@@ -15,11 +15,7 @@ public class ShowPersonaInterview extends VerticalPanel {
 
 		this.setSpacing(20);
 
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
 
-		this.add(new ButtonEditPersonaInterview(interview));
-
-		this.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
 		String interviewer = ConvertJson.convertToString(interview
 				.get("interviewer"));
