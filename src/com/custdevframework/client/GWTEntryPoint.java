@@ -3,6 +3,7 @@ package com.custdevframework.client;
 import co.uniqueid.authentication.client.UniqueIDGlobalVariables;
 import co.uniqueid.authentication.client.utilities.EncryptText;
 
+import com.custdevframework.client.interviews.list.ButtonListInterviews;
 import com.custdevframework.client.persona.list.ListPersonas;
 import com.custdevframework.client.persona.show.GetPersona;
 import com.custdevframework.client.problems.show.GetProblem;
@@ -82,6 +83,12 @@ public class GWTEntryPoint implements EntryPoint {
 		if (problem != null) {
 
 			GetProblem.get(problem);
+		}
+
+		final String interviews = Location.getParameter("interviews");
+		if (interviews != null) {
+
+			ButtonListInterviews.startInterviews();
 		}
 	}
 }

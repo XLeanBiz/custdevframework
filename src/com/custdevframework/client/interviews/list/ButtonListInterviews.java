@@ -19,15 +19,19 @@ public class ButtonListInterviews extends Button {
 
 				new UseTracking(this.getClass().getName());
 
-				Home.vpMain.clear();
-				Home.vpMain.add(new InterviewsListPanel());
-
-				ListPersonaInterviews.list();
-
-				ListProblemInterviews.list();
+				startInterviews();
 			}
 		});
+	}
 
+	public static void startInterviews() {
+
+		Home.vpMain.clear();
+		Home.vpMain.add(new InterviewsListPanel());
+
+		ListPersonaInterviews.list();
+
+		ListProblemInterviews.list();
 	}
 
 }

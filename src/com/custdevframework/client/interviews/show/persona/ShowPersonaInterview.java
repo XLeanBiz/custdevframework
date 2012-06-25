@@ -6,7 +6,6 @@ import co.uniqueid.authentication.client.utilities.ConvertJson;
 
 import com.custdevframework.client.utilities.FormField;
 import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.VerticalPanel;
 
 public class ShowPersonaInterview extends VerticalPanel {
@@ -14,8 +13,6 @@ public class ShowPersonaInterview extends VerticalPanel {
 	public ShowPersonaInterview(JSONObject interview) {
 
 		this.setSpacing(20);
-
-
 
 		String interviewer = ConvertJson.convertToString(interview
 				.get("interviewer"));
