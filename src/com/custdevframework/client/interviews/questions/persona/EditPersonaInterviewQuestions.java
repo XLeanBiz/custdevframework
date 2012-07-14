@@ -44,23 +44,22 @@ public class EditPersonaInterviewQuestions extends VerticalPanel {
 				.get("describeYourself"));
 		describeYourself.setHTML(describeYourselfValue);
 		this.add(FormField.getVerticalFormField(
-				"How would you describe yourself as a " + personaName + "?",
+				"How would you describe yourself as " + personaName + "?",
 				describeYourself));
 		describeYourself.setSize("500px", "80px");
 
 		String routineValue = ConvertJson.convertToString(interview
 				.get("routine"));
 		routine.setHTML(routineValue);
-		this.add(FormField.getVerticalFormField("How is your typical day as a "
+		this.add(FormField.getVerticalFormField("How is your routine as "
 				+ personaName + "?", routine));
 		routine.setSize("500px", "80px");
 
 		String mainProblemValue = ConvertJson.convertToString(interview
 				.get("mainProblem"));
 		mainProblem.setHTML(mainProblemValue);
-		this.add(FormField.getVerticalFormField(
-				"What is your main problem as a " + personaName + "?",
-				mainProblem));
+		this.add(FormField.getVerticalFormField("What is your main problem as "
+				+ personaName + "?", mainProblem));
 		mainProblem.setSize("500px", "80px");
 
 		String mainProblemRate = ConvertJson.convertToString(interview

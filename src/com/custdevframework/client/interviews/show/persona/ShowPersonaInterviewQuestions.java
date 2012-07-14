@@ -19,17 +19,17 @@ public class ShowPersonaInterviewQuestions extends VerticalPanel {
 		String describeYourself = ConvertJson.convertToString(interview
 				.get("describeYourself"));
 		this.add(FormField.getStringFieldVertical(
-				"How would you describe yourself as a " + personaName + "?",
+				"How would you describe yourself as " + personaName + "?",
 				describeYourself));
 
 		String routine = ConvertJson.convertToString(interview.get("routine"));
 		this.add(FormField.getStringFieldVertical(
-				"How is your typical day as a " + personaName + "?", routine));
+				"How is your routine as " + personaName + "?", routine));
 
 		String mainProblem = ConvertJson.convertToString(interview
 				.get("mainProblem"));
 		this.add(FormField.getStringFieldVertical(
-				"What is your main problem as a " + personaName + "?",
+				"What is your main problem as " + personaName + "?",
 				mainProblem));
 
 		String mainProblemRate = ConvertJson.convertToString(interview
