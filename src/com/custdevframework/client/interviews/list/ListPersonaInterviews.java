@@ -11,6 +11,8 @@ import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class ListPersonaInterviews {
+	
+	public static JSONArray personaInterviewsList = null;
 
 	public static void list() {
 
@@ -36,6 +38,8 @@ public class ListPersonaInterviews {
 
 								JSONArray jsonArray = (JSONArray) JSONParser
 										.parseStrict(jsonResults);
+
+								personaInterviewsList = jsonArray;
 
 								InterviewsListPanel.vpPersonaInterviews.clear();
 								InterviewsListPanel.vpPersonaInterviews

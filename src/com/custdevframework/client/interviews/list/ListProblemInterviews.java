@@ -12,6 +12,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public class ListProblemInterviews {
 
+	public static JSONArray problemInterviewsList = null;
+
 	public static void list() {
 
 		final CustDevFrameworkServiceAsync custDevService = GWT
@@ -36,6 +38,8 @@ public class ListProblemInterviews {
 
 								JSONArray jsonArray = (JSONArray) JSONParser
 										.parseStrict(jsonResults);
+								
+								problemInterviewsList = jsonArray;
 
 								InterviewsListPanel.vpProblemInterviews.clear();
 								InterviewsListPanel.vpProblemInterviews

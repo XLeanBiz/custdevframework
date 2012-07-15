@@ -11,8 +11,8 @@ import com.custdevframework.server.personas.SavePersona;
 import com.custdevframework.server.problems.GetProblem;
 import com.custdevframework.server.problems.ListProblems;
 import com.custdevframework.server.problems.SaveProblem;
-import com.google.appengine.repackaged.org.json.JSONException;
-import com.google.appengine.repackaged.org.json.JSONObject;
+import com.google.appengine.labs.repackaged.org.json.JSONException;
+import com.google.appengine.labs.repackaged.org.json.JSONObject;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**

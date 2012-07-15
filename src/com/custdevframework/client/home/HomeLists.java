@@ -7,6 +7,7 @@ import com.custdevframework.client.interviews.list.ButtonListInterviews;
 import com.custdevframework.client.persona.list.ListPersonas;
 import com.custdevframework.client.persona.show.PersonaLink;
 import com.custdevframework.client.problems.change.ChangeProblem;
+import com.custdevframework.client.problems.matrix.ButtonProblemMatrix;
 import com.custdevframework.client.problems.show.ProblemLink;
 import com.custdevframework.client.utilities.UseTracking;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -34,7 +35,9 @@ public class HomeLists extends HorizontalPanel {
 
 		this.add(solutionPanel());
 
-		this.add(interviewsPanel());
+		this.add(new ButtonListInterviews());
+
+		this.add(new ButtonProblemMatrix());
 	}
 
 	private VerticalPanel personaPanel() {
@@ -103,19 +106,6 @@ public class HomeLists extends HorizontalPanel {
 		vpProblems.add(vpSolution);
 
 		// vpProblems.add(new AddPersonaButton());
-
-		return vpProblems;
-	}
-
-	private VerticalPanel interviewsPanel() {
-
-		VerticalPanel vpProblems = new VerticalPanel();
-
-		vpProblems.setSpacing(20);
-
-		vpProblems.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
-
-		vpProblems.add(new ButtonListInterviews());
 
 		return vpProblems;
 	}
